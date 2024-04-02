@@ -20,7 +20,7 @@ class Home extends Component {
         axios.get(API_URL)
             .then(res => {
                 console.log("Response data:" , res.data)
-                // Assuming the response data is an array of recipes
+                // Response data is an array of recipes
                 const recipes = res.data;
                 this.setState({ recipes }); // Shorthand for { recipes: recipes }
             })
