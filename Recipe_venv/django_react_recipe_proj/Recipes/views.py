@@ -21,6 +21,7 @@ def recipes_list(request):
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def recipes_detail(request, pk):
+    print("Recipe ID:", pk)
     try:
         recipe = Recipes.objects.get(pk=pk)  # Corrected attribute name
     except Recipes.DoesNotExist:  # Corrected exception name
