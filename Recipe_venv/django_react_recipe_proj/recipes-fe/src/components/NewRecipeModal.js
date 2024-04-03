@@ -14,13 +14,12 @@ class NewRecipeModal extends Component {
     };
 
     render() {
-        const create = this.props.create;
+        const { create, recipe } = this.props;
 
         var title = 'Editing Recipe';
         var button = <Button onClick={this.toggle}>Edit</Button>;
         if (create) {
             title = "Creating New Recipe";
-
             button = (
                 <Button
                     color="primary"
@@ -36,12 +35,11 @@ class NewRecipeModal extends Component {
                 {button}
                 <Modal isOpen={this.state.modal} toggle={this.toggle}>
                     <ModalHeader toggle={this.toggle}>{title}</ModalHeader>
-
                     <ModalBody>
                         <NewRecipeForm
                             resetState={this.props.resetState}
                             toggle={this.toggle}
-                            recipes={this.props.recipes}
+                            recipe={recipe} // Pass recipe prop here
                         />    
                     </ModalBody>
                 </Modal>

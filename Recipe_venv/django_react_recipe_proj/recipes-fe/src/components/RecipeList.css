@@ -1,0 +1,32 @@
+/* recipelist.css */
+
+.hoverable:hover {
+    background-color: #f5f5f5; /* Change to the desired hover background color */
+}
+
+/* RecipeList.css */
+
+.table {
+    /* Other table styles */
+    font-family: "Marker Felt", fantasy; /* Apply the "Marker Felt" font family */
+}
+
+/* RecipeList.css */
+
+.background-container {
+    position: relative;
+    background-image: url('../Imgs/My_Bkg.png');
+    background-size: cover;
+    background-position: center;
+    /* Set the background to cover the whole space */
+    padding: 20px; /* Adjust the padding as needed to create space around the table */
+    width: 100%; /* Expand the container to cover the entire width */
+}
+  
+  .table-wrapper {
+    position: relative;
+    z-index: 1; /* Ensure the table stays above the background */
+    margin: 0 auto; /* Center the table horizontally */
+    max-width: 800px; /* Adjust the maximum width of the table */
+  }
+  

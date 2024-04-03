@@ -1,4 +1,4 @@
-#!/Users/paul_molina/Multiverse/Mi_Recipe/Recipe_venv/bin/python3.12
+#!/Users/paul_molina/Multiverse/Mi_Recipe/Recipe_venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

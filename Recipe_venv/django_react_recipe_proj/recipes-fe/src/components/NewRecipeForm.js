@@ -3,20 +3,20 @@ import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
 
 import axios from 'axios';
 
-import { API_URL } from '../constants'
+import { API_URL } from '../constants';
 
 class NewRecipeForm extends React.Component {
     state = {
-        pk: 0,
         title: '',
-        ingredients:'',
-        directions:'',
+        ingredients: '',
+        directions: '',
     };
 
     componentDidMount() {
-        if (this.props.recipe) {
-            const { pk, title, ingredients, directions } = this.props.recipe;
-            this.setState({pk, title, ingredients, directions });
+        const { recipe } = this.props;
+        if (recipe) {
+            const { title, ingredients, directions } = recipe;
+            this.setState({ title, ingredients, directions });
         }
     }
 
@@ -27,43 +27,26 @@ class NewRecipeForm extends React.Component {
     createRecipe = e => {
         e.preventDefault();
         axios.post(API_URL, this.state)
-        .then(() => {
-            this.props.resetState();
-            this.props.toggle();
-            // Reset the form fields
-            this.setState({
-                pk: 0,
-                title: '',
-                ingredients:'',
-                directions:'',
+            .then(() => {
+                this.props.resetState();
+                this.props.toggle();
+            })
+            .catch(error => {
+                console.error('Error creating recipe:', error);
             });
-        })
-        .catch(error => {
-            console.error('Error creating recipe:', error);
-        });
     };
 
     editRecipe = e => {
         e.preventDefault();
-        axios.put(API_URL + this.state.pk, this.state)
-        .then(() => {
-            this.props.resetState();
-            this.props.toggle();
-            // Reset the form fields
-            this.setState({
-                pk: 0,
-                title: '',
-                ingredients:'',
-                directions:'',
+        const { recipe } = this.props;
+        axios.put(`${API_URL}${recipe.pk}/`, this.state)
+            .then(() => {
+                this.props.resetState();
+                this.props.toggle();
+            })
+            .catch(error => {
+                console.error('Error editing recipe:', error);
             });
-        })
-        .catch(error => {
-            console.error('Error editing recipe:', error);
-        });
-    };
-
-    defaultIfEmpty = value => {
-        return value === "" ? "" : value;
     };
 
     render() {
@@ -75,8 +58,8 @@ class NewRecipeForm extends React.Component {
                         type="text"
                         name="title"
                         onChange={this.onChange}
-                        value={this.defaultIfEmpty(this.state.title)}
-                        />
+                        value={this.state.title}
+                    />
                 </FormGroup>
                 <FormGroup>
                     <Label for='ingredients'>Ingredients:</Label>
@@ -84,8 +67,8 @@ class NewRecipeForm extends React.Component {
                         type="text"
                         name="ingredients"
                         onChange={this.onChange}
-                        value={this.defaultIfEmpty(this.state.ingredients)}
-                        />
+                        value={this.state.ingredients}
+                    />
                 </FormGroup>
                 <FormGroup>
                     <Label for='directions'>Directions:</Label>
@@ -93,10 +76,10 @@ class NewRecipeForm extends React.Component {
                         type="text"
                         name="directions"
                         onChange={this.onChange}
-                        value={this.defaultIfEmpty(this.state.directions)}
-                        />
+                        value={this.state.directions}
+                    />
                 </FormGroup>
-                <Button>Send</Button>
+                <Button type="submit">Save</Button>
             </Form>
         );
     }

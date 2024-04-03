@@ -1,0 +1,5 @@
+.home-container {
+    max-height: 400px; /* Adjust the max-height according to your preference */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  

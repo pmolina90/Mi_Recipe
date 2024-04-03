@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {Col, Container, Row } from "reactstrap";
 import RecipeList from "./RecipeList";
 import NewRecipeModal from "./NewRecipeModal";
+import "./Home.css"; // Import home.css here
 
 import axios from 'axios';
 
@@ -36,7 +37,7 @@ class Home extends Component {
 
     render(){
         return (
-            <Container style={{ marginTop: '20px' }}>
+            <Container className="home-container" style={{ marginTop: '20px' }}>
                 <Row>
                     <Col>
                         <RecipeList

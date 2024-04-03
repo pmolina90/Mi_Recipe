@@ -1,0 +1,21 @@
+/* header.css */
+
+.header-container {
+    
+    padding: 20px; /* Add padding for spacing */
+  }
+  
+  .logo {
+    max-width: 100%; /* Ensure the logo fits within the container */
+    margin-bottom: 20px; /* Add margin at the bottom of the logo */
+  }
+  
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: beige; /* Set background color to beige */
+    padding: 95x;
+    text-align: center;
+  }
