@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import {Col, Container, Row } from "reactstrap";
+import { Col, Container, Row } from "reactstrap";
 import RecipeList from "./RecipeList";
 import NewRecipeModal from "./NewRecipeModal";
 import "./Home.css"; // Import home.css here
 
-import axios from 'axios';
-
+import customAxios from './customAxios'; // Import custom Axios instance
 import { API_URL } from "../constants";
 
 class Home extends Component {
@@ -19,15 +18,13 @@ class Home extends Component {
 
     getRecipes = () => {
         console.log("Request URL:", API_URL); // Log the request URL
-        axios.get(API_URL)
+        customAxios.get(API_URL)
             .then(res => {
-                console.log("Response data:" , res.data)
-                // Response data is an array of recipes
+                console.log("Response data:", res.data);
                 const recipes = res.data;
-                this.setState({ recipes }); // Shorthand for { recipes: recipes }
+                this.setState({ recipes });
             })
             .catch(error => {
-                // Handle error
                 console.error('Error fetching recipes:', error);
             });
     };
