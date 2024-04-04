@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'django_react_recipe_proj.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='postgres://mysite:Jxz6B2g7nms5wzh8bmlMN4iU6ghXfwZf@dpg-co72ck6d3nmc73e30430-a/mysite_du3l',
         conn_max_age=600
     )
 }

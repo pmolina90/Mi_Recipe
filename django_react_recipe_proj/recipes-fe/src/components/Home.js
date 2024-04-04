@@ -17,7 +17,7 @@ class Home extends Component {
     }
 
     getRecipes = () => {
-        console.log("Request URL:", API_URL); // Log the request URL
+        console.log("Request URL:", `${API_URL}`); // Log the request URL
         axios.get(`${API_URL}/api/recipes`)
             .then(res => {
                 console.log("Response data:", res.data);
