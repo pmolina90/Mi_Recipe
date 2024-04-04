@@ -24,4 +24,5 @@ urlpatterns = [
     re_path(r'^api/recipes/$', views.recipes_list),
     #URL pattern for seeing details of a specific recipe
     re_path(r'^api/recipes/(?P<pk>\d+)/$', views.recipes_detail),
+    # path('', views.home),
 ]
