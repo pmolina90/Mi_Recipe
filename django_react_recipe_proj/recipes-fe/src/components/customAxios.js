@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL } from './constants'; // Import API_URL from your constants file
+import { API_URL } from '../constants/index'; // Import API_URL from your constants file
 
 const customAxios = axios.create({
   baseURL: API_URL,

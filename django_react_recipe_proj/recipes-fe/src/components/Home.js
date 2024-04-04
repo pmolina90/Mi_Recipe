@@ -5,7 +5,7 @@ import NewRecipeModal from "./NewRecipeModal";
 import "./Home.css"; // Import home.css here
 
 import customAxios from './customAxios'; // Import custom Axios instance
-import { API_URL } from "../constants";
+import { API_URL } from "../constants/index";
 
 class Home extends Component {
     state = {
