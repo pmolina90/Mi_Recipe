@@ -20,9 +20,9 @@ from Recipes import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #URLl pattern for seeing all recipes 
-    re_path(r'^api/recipes/$', views.recipes_list),
-    #URL pattern for seeing details of a specific recipe
-    re_path(r'^api/recipes/(?P<pk>\d+)/$', views.recipes_detail),
+    # URL pattern for seeing all recipes
+    path('api/recipes/', views.recipes_list),
+    # URL pattern for seeing details of a specific recipe
+    path('api/recipes/<int:pk>/', views.recipes_detail),
     # path('', views.home),
 ]
