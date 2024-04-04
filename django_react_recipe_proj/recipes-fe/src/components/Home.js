@@ -4,7 +4,7 @@ import RecipeList from "./RecipeList";
 import NewRecipeModal from "./NewRecipeModal";
 import "./Home.css"; // Import home.css here
 
-import customAxios from './customAxios'; // Import custom Axios instance
+import axios from "axios"; 
 import { API_URL } from "../constants/index";
 
 class Home extends Component {
@@ -18,7 +18,7 @@ class Home extends Component {
 
     getRecipes = () => {
         console.log("Request URL:", API_URL); // Log the request URL
-        customAxios.get(API_URL)
+        axios.get(`${API_URL}/api/recipes`)
             .then(res => {
                 console.log("Response data:", res.data);
                 const recipes = res.data;
