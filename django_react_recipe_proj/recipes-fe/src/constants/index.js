@@ -1,1 +1,1 @@
-export const API_URL = process.env.RECIPE_APP_API_URL;
+export const API_URL = 'https://mysite-fcnw.onrender.com/api/recipes/'
