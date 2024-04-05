@@ -1,0 +1,25 @@
+.directions-input, 
+textarea.form-control {
+    height: 200px; /* Set a fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    resize: none; /* Prevent resizing of the textarea */
+    padding: 10px; /* Add padding to the textarea */
+    font-size: 16px; /* Set font size */
+    line-height: 1.5; /* Set line height for better readability */
+    border: 1px solid #ccc; /* Add border for clarity */
+    width: 100%; /* Make the input span the entire width of the container */
+    word-wrap: break-word; /* Wrap long words onto the next line */
+}
+
+
+textarea.directions-input {
+    height: 200px; /* Set a fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    resize: none; /* Prevent resizing of the textarea */
+    padding: 10px; /* Add padding to the textarea */
+    font-size: 16px; /* Set font size */
+    line-height: 1.5; /* Set line height for better readability */
+    border: 1px solid #ccc; /* Add border for clarity */
+    width: 100%; /* Make the input span the entire width of the container */
+    word-wrap: break-word; /* Wrap long words onto the next line */
+}

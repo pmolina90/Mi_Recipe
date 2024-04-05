@@ -72,12 +72,13 @@ class NewRecipeForm extends React.Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for='directions'>Directions:</Label>
-                    <Input
+                    <textarea
+                        className="directions-input form-control"
                         type="text"
                         name="directions"
                         onChange={this.onChange}
                         value={this.state.directions}
-                    />
+                    ></textarea>
                 </FormGroup>
                 <Button type="submit">Save</Button>
             </Form>

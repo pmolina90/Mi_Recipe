@@ -1,15 +1,46 @@
 import React, { Component } from "react";
-import { Table } from "reactstrap";
+import { Table, Input } from "reactstrap";
 import NewRecipeModal from "./NewRecipeModal";
 import ConfirmRemovalModal from "./ConfirmRemovalModal";
-import "./RecipeList.css"; // Import recipelist.css here
+import "./RecipeList.css";
 
 class RecipeList extends Component {
+    state = {
+        searchTerm: ""
+    };
+
+    handleSearch = (event) => {
+        this.setState({ searchTerm: event.target.value });
+    };
+
     render() {
         const { recipes, hover } = this.props;
+        const { searchTerm } = this.state;
+
+        // Filter recipes based on search term
+        const filteredRecipes = recipes.filter((recipe) =>
+            recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            recipe.ingredients.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            recipe.directions.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
         return (
-            <div className="background-container">
+            <div>
+                {/* Background image container */}
+                <div className="background-container" />
+                {/* Table and search input */}
                 <div className="table-wrapper">
+                    <div className="search-bar-container">
+                        <Input
+                            type="text"
+                            placeholder="Search recipes..."
+                            value={searchTerm}
+                            onChange={this.handleSearch}
+                        />
+                    </div>
+                    <div className="create-btn">
+                        <NewRecipeModal create={true} resetState={this.props.resetState} />
+                    </div>
                     <Table dark className="table-centered" striped={hover} style={{ fontFamily: '"Marker Felt", fantasy' }}>
                         <thead>
                             <tr>
@@ -21,15 +52,15 @@ class RecipeList extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {!recipes || recipes.length === 0 ? (
+                            {!filteredRecipes.length ? (
                                 <tr>
-                                    <td colSpan='5' align="center">
-                                        <b>Oops, no one here yet</b>
+                                    <td colSpan="5" align="center">
+                                        <b>No matching recipes found</b>
                                     </td>
                                 </tr>
                             ) : (
-                                recipes.map((recipe, index) => (
-                                        <tr key={recipe.pk} className={hover && index % 2 === 0 ? "hoverable" : ""}>
+                                filteredRecipes.map((recipe, index) => (
+                                    <tr key={recipe.pk} className={hover && index % 2 === 0 ? "hoverable" : ""}>
                                         <td>{recipe.title}</td>
                                         <td>{recipe.ingredients}</td>
                                         <td>{recipe.directions}</td>
@@ -44,7 +75,7 @@ class RecipeList extends Component {
                                             <ConfirmRemovalModal
                                                 pk={recipe.pk}
                                                 resetState={this.props.resetState}
-                                            />    
+                                            />
                                         </td>
                                     </tr>
                                 ))
@@ -52,7 +83,7 @@ class RecipeList extends Component {
                         </tbody>
                     </Table>
                 </div>
-            </div>                    
+            </div>
         );
     }
 }

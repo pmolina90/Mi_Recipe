@@ -14,14 +14,14 @@
 /* RecipeList.css */
 
 .background-container {
-    position: relative;
-    background-image: url('../Imgs/My_Bkg.png');
-    background-size: cover;
-    background-position: center;
-    /* Set the background to cover the whole space */
-    padding: 20px; /* Adjust the padding as needed to create space around the table */
-    width: 100%; /* Expand the container to cover the entire width */
+  background-image: url('../Imgs/My_Bkg.png');
+  background-position: center;
+  padding: 20%; /* Adjust the padding as needed to create space around the table */
+  width: 100%; /* Expand the container to cover the entire width */
+  border-radius: 20px; /* Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a box shadow */
 }
+
   
   .table-wrapper {
     position: relative;
@@ -30,3 +30,8 @@
     max-width: 800px; /* Adjust the maximum width of the table */
   }
   
+  .create-btn {
+    position: relative; /* Change to relative positioning */
+    text-align: center; /* Center-align the button */
+    margin-bottom: 20px; /* Add margin to create space from the recipe list */
+  }

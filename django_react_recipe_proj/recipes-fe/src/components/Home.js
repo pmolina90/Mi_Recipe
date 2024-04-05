@@ -44,11 +44,6 @@ class Home extends Component {
                         />    
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
-                     <NewRecipeModal create={true} resetState={this.resetState} />       
-                    </Col>
-                </Row>
             </Container>
         );
     }
